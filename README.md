@@ -60,7 +60,7 @@ became the core of this server-client part. Maybe other students used it too. No
 Having in mind that MultiThreadServer has static Thread pool already initialized,
 it tries to create a server socket and runs a while loop. If server accepts some client connection it will send this client
 to a MonoThreadClientHandler in a threadpool.
-And Once server is closed, threadpool is shutdown as well.
+And once server is closed, threadpool is shutdown as well.
 
 To run client connection you might run main in Client or Main class, as they both initialize a Client object, which connects 
 to the server.
@@ -71,14 +71,11 @@ Client(3)
 
 (1) Utils. 
   1) getXAccessToken. It simply executes a request to /register and puts the auth token value to a static variable.
-  2) getAllTextFromPage. It returns all text from page in a string without changing it. It uses Http request and ResponseHanler
-      in general. 
-  3) GetDataset from csv/json/yamx/xml. It needs a DTO obejct, then it maps it and gets a list of Records. I hope there will 
-      be no questions about what is a Data Transfer Object, why are they needed and what is de/serialization. It just lets me
-      have data from page in a structured way. For example a Record has someone's personal data like id, email etc.
+  2) getAllTextFromPage. It returns all text from page in a string without changing it. It uses Http request and ResponseHandler in general. 
+  3) GetDataset from csv/json/yamx/xml. It needs a DTO obejct, then it maps it and gets a list of Records. It just lets           me have data from page in a structured way. For example a Record has someone's personal data like id, email etc.
   4) completeListRecords method just divides data from routes by mime type and uses getDataSet methods to put Records in 
       one big static list.
-  5) getRandomRecord basically picks one random record from that one big list mentioned above
+  5) getRandomRecord basically picks one random record from that one big list mentioned above.
   6) getRecordBy (which I changed by your request to get record by any column name) Lets me do exactly what it says.
       It needs column name and value as arguments, then in a switch it finds and returns needed record. Or a record with
       "NO SUCH THING" or whatever message if it fails to find something. Not a very optimized method code-size-wize because 
@@ -113,15 +110,13 @@ Client(3)
       
       
       
- (2)MonoThreadClientHandler handles 1 connection with client. First it gets client isntance from it's constructor.
+ (2)MonoThreadClientHandler handles 1 connection with client. First it gets client instance from it's constructor.
     Then it Tries to create Data I/O streams from client socket.
     While cliendDialog is not closed it reads data from input, handles it throught methods like getRandomRecord from 
     Utils.
-    On "quit" commands it closes connection, and it has a flush() method to force response to be written out.
+    On "quit" command it closes connection, and it has a flush() method to force response to be written out.
     
- (3)Client connects to local throught a given port. It does basically the same thing as MonoThreadClientHandler, except it 
-    gets text to send to the server from System.in (keyboard), does not handle any commands, only gets response from server 
-    on what I requested. 
+ (3)Client connects to http:\\local through a given port. It does basically the same thing as MonoThreadClientHandler,           except it  gets text to send to the server from System.in (keyboard), does not handle any commands, only gets response       from server on what I requested. 
       
       
 
