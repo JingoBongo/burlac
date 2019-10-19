@@ -37,7 +37,7 @@ next.
         As commands you can use "get record by column_name value" or "get random", "get all not null"
         
 Then there is a while loop that lets main wait untill all data in additional threads is taken.
-completeListRecords method simply converts all plain text that I got from routes to list of Records. (as all data about 1 
+completeListRecords method simply converts DTO's that I got from routes to list of Records. (as all data about 1 
 person is a Record.). It sees what mime type each route had to convert the data properly. (Also forgot to tell you, there is 
 at least one route with an extra comma, so object mapper with no extra code gets an error). Once divided data to mime type, 
 method uses object mappers.
