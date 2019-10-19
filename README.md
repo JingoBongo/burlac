@@ -24,7 +24,7 @@ I launch MultiTheradServer, because in main it has following lines:
         Utils.getAllLinks(arlist);
         
 My method of taking all the routes and data from server is recursive and as argument it needs a list with already known 
-routes.So first route is Home. Using list with 1 element lets me start the recursive method to get all routes and data. 
+routes. So first route is Home. Using list with 1 element lets me start the recursive method to get all routes and data. 
 I'll talk about this method later. 
 Also in main getXAccessToken method is launched, he gets needed auth token one time.
 next.
