@@ -137,22 +137,8 @@ public static List<Record> getDatasetFromCsvText(RouteDTO car){
     public static Record getRandomRecord(){
         return allRecords.get(new Random().nextInt(allRecords.size()-1));
     }
-    public String id;
-    public String first_name;
-    public String last_name;
-    public String bitcoin_address;
-    public String email;
-    public String gender;
-    public String ip_address;
-    public String card_number;
-    public String card_balance;
-    public String card_currency;
-    public String organization;
-    public String full_name;
-    public String employee_id;
-    public String username;
-    public String created_account_data;
-    public static List<Record> getRecordById(String columnname, String value){
+    
+    public static List<Record> getRecordBy(String columnname, String value){
 //        System.out.println(id);
         List<Record> resp = new ArrayList<>();
         boolean areResults = false;
