@@ -17,23 +17,28 @@ Now, back to Java.
 Let's assume I am already connected to server and I want to get all routes/data from it.
 
 I launch MultiTheradServer, because in main it has following lines:
+
         List<String> arlist = new ArrayList<>();
         arlist.add(Utils.homeUrl);
         getXAccessToken();
         Utils.getAllLinks(arlist);
+        
 My method of taking all the routes and data from server is recursive and as argument it needs a list with already known 
 routes.So first route is Home. Using list with 1 element lets me start the recursive method to get all routes and data. 
 I'll talk about this method later. 
 Also in main getXAccessToken method is launched, he gets needed auth token one time.
 next.
+
         while(Thread.activeCount() > 2){}
         Utils.completeListRecords();
+        
 Then there is a while loop that lets main wait untill all data in additional threads is taken.
 completeListRecords method simply converts all plain text that I got from routes to list of Records. (as all data about 1 
 person is a Record.). It sees what mime type each route had to convert the data properly. (Also forgot to tell you, there is 
 at least one route with an extra comma, so object mapper with no extra code gets an error). Once divided data to mime type, 
 method uses object mappers.
 next.
+
        try (ServerSocket server = new ServerSocket(3345)) {
                   System.out.println("Server socket created, command console reader for listen to server commands");
 
@@ -79,6 +84,7 @@ Client(3)
   8) getAllLinks is the most interesting method here. It needs a list of routes as argument and it gets all routes and data
       from webpage, also launching itself recursively in threads.
       simplified pseudo-code here:
+      
       
       public static void getAllLinks(List<String> givenRoutes) {
             for(int i = 0; i < givenRoutes.size(); i++) {
