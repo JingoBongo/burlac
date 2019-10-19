@@ -31,6 +31,10 @@ next.
 
         while(Thread.activeCount() > 2){}
         Utils.completeListRecords();
+ 
+~When you launched MultiThreadServer, waited to get all routes (it will print time spent and you are ready to go)
+        then just launch Client/Main class to get a client as well.
+        As commands you can use "get record by column_name valeue" or "get random", "get all not null"
         
 Then there is a while loop that lets main wait untill all data in additional threads is taken.
 completeListRecords method simply converts all plain text that I got from routes to list of Records. (as all data about 1 
