@@ -47,7 +47,7 @@ public class MonoThreadClientHandler implements Runnable {
                     String columnname = idarr[3];
                     String value = idarr[4];
                     StringBuilder st = new StringBuilder();
-                    for(Record ree : Utils.getRecordById(columnname, value)){
+                    for(Record ree : Utils.getRecordBy(columnname, value)){
                         st.append(ree.toString()+"\n");
                     }
                     System.out.println("Server try writing to channel");
