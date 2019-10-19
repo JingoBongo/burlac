@@ -55,8 +55,7 @@ next.
                   executeIt.shutdown();
               }
 *If this server-client code appears similar, I will provide you a link in the end with the source guide, which basically 
-became the core of this server-client part. Maybe other students used it too. Noone will blame them just because I found this
-webpage doesn't mean others should not use it.*
+became the core of this server-client part. Maybe other students used it too. Noone will blame them just because they found this webpage as well.*
               
 Having in mind that MultiThreadServer has static Thread pool already initialized,
 it tries to create a server socket and runs a while loop. If server accepts some client connection it will send this client
@@ -125,3 +124,5 @@ Client(3)
     on what I requested. 
       
       
+
+*server/client guide link https://habr.com/ru/post/330676/ *
